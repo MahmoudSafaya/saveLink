@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from './Context'
 
 const Links = () => {
-  const {links, menu, handleMenu, removeLink, openUpdate, shit} = useGlobalContext();
+  const {links, menu, handleMenu, removeLink, openUpdate, number, empty} = useGlobalContext();
 
   return (
     <section className='links container'>
@@ -23,7 +23,7 @@ const Links = () => {
               <a href={url} className='box-link' style={boxStyle}>
                 <i class="fas fa-link"></i>
               </a>
-              <div className={`${(shit === index && menu) ? 'menu show' : 'menu'}`}>
+              <div className={`${(number === index && menu) ? 'menu show' : 'menu'}`}>
                 <p onClick={() => openUpdate(index)}>Edit</p>
                 <p onClick={() => removeLink(index)}>Remove</p>
               </div>
@@ -33,8 +33,8 @@ const Links = () => {
         })
       }
       </div>
-      <div className='empty-div'>
-        No links were added yet.
+      <div className={`${empty ? 'empty-div show' : 'empty-div'}`}>
+        Hi there, would you like to save a link?
       </div>
     </section>
   )

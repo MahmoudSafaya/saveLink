@@ -11,8 +11,9 @@ const AppProvider = ({children}) => {
   const [menu, setMenu] = useState(false);
   const [update, setUpdate] = useState(false);
   const [linkIndex, setLinkIndex] = useState(0);
-  const [shit, setShit] = useState(0);
+  const [number, setNumber] = useState(0);
   const [alert, setAlert] = useState({bool: false, color: '', text: ''});
+  const [empty, setEmpty] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +51,7 @@ const AppProvider = ({children}) => {
   }
   // function to handle menu click
   const handleMenu = (index) => {
-    setShit(index);
+    setNumber(index);
     setMenu(!menu);
   }
 
@@ -76,14 +77,23 @@ const AppProvider = ({children}) => {
 
   useEffect(() => {
     const savedLinks = localStorage.getItem('links');
-    setLinks(JSON.parse(savedLinks));
+    if(savedLinks) {
+      if(JSON.parse(savedLinks).length > 0){
+        setLinks(JSON.parse(savedLinks));
 
-    setInput({
-      name: '',
-      url: ''
-    });
+        setInput({
+          name: '',
+          url: ''
+        });
+        setEmpty(false);
+      } else {
+        setEmpty(true);
+      }
+    } else {
+      setEmpty(true);
+    }
 
-  }, [counter])
+  }, [counter]);
 
   return(
     <AppContext.Provider value={{
@@ -98,8 +108,9 @@ const AppProvider = ({children}) => {
       openUpdate,
       setUpdate,
       update,
-      shit,
-      ...alert
+      number,
+      ...alert,
+      empty
     }}>
       {children}
     </AppContext.Provider>
