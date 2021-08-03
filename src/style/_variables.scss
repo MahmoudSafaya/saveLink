@@ -1,0 +1,97 @@
+$pink: #5f5f9e;
+$danger: #fcd4da;
+$gray: #555;
+$success: #14ff5d85;
+$info: #339AF0;
+
+.container{
+  width: 75%;
+  margin: 0 auto;
+  background: white;
+  padding: 80px;
+
+  &:nth-of-type(1){
+    height: 100vh;
+  }
+  &:nth-of-type(2){
+    height: 100%;
+  }
+
+  @media screen and (max-width: 520px) {
+    width: 80%;
+    padding: 30px;
+  }
+  @media screen and (min-width: 521px) and (max-width: 920px) {
+    width: 80%;
+    padding: 60px;
+  }
+}
+
+.header{
+  width: 100%;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 80px;
+  @media screen and (max-width: 520px) {
+  }
+}
+
+
+button{
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+
+.fa-ellipsis-v{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: $gray;
+  cursor: pointer;
+  transition: all 0.3s linear 0s;
+  opacity: 0.8;
+  visibility: hidden;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.alert{
+  position: fixed;
+  width: 100%;
+  top: 40px;
+  left: 0;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  p{
+    color: $gray;
+    padding: 10px 100px;
+    box-shadow: 0 0 5px #ddd;
+  }
+}
+
+.empty-div{
+  width: 40%;
+  background: $danger;
+  color: $gray;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  display: none;
+}
+
+.show{
+  display: block !important;
+}
+.flex{
+  display: flex !important;
+}

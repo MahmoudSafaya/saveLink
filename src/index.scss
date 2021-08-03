@@ -1,0 +1,215 @@
+@import './style/variables.scss';
+
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  font-family: 'Noto Sans SC', sans-serif;
+  background: $pink;
+}
+.landing,
+.landing-update{
+
+  .form-article{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-div{
+      width: 55%;
+
+      label{
+        display: block;
+        margin: 20px 0px;
+      }
+    
+      input{
+        width: 100%;
+        padding: 10px 15px;
+        margin-bottom: 30px;
+        outline: none;
+      }
+    
+      button{
+        width: 20%;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: block;
+        box-shadow: 2px 2px 10px #ddd;
+        margin: 30px 0;
+
+        &:hover{
+          background: #222;
+        }
+      }
+  
+      // mobile style for form-article
+      @media screen and (max-width: 520px) {
+        width: 100%;
+        button{
+          width: 40%;
+        }
+      }
+      // tablet style for form-article
+      @media screen and (min-width: 521px) and (max-width: 919px) {
+        width: 80%;
+        button{
+          width: 25%;
+        }
+      }
+      // small desktop style for form-article
+      @media screen and (min-width: 920px) and (max-width: 1100px) {
+        button{
+          width: 32%;
+        }
+      }
+    }
+  }  
+}
+
+.links-div{
+  width: 100%;
+  text-align: center;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media screen and (max-width: 520px) {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+  }
+  @media screen and (min-width: 521px) and (max-width: 920px) {
+    padding: 0 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media screen and (min-width: 920px) and (max-width: 1190px) {
+    padding: 0 20px;
+  }
+  
+
+  .box{
+    margin: 30px 15px;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgb(211, 210, 210);
+
+    &:hover .fa-ellipsis-v{
+      visibility: visible;
+    }
+
+    &-bg{
+      width: 100%;
+      height: 100px;
+      background:rgba(221, 221, 221, 0.4);
+      color: #333;
+      font-weight: bold;
+      padding: 30px 0px;
+      border-radius: 5px;
+      @media screen and (min-width: 521px) and (max-width: 920px) {
+        font-size: 14px;
+      }
+    }
+
+    &-link{
+      width: 35%;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      position: absolute;
+      top: 70px;
+      left: 32%;
+      color:white;
+      font-size: 20px;
+      text-align: center;
+      padding: 5px;
+
+      &:hover{
+        opacity: 0.9;
+      }
+
+      @media screen and (max-width: 520px) {
+        font-size: 15px;
+        top: 75px;
+      }
+      @media screen and (min-width: 521px) and (max-width: 920px) {
+        font-size: 12px;
+        width: 48%;
+        left: 28%;
+        top: 80px;
+      }
+      @media screen and (min-width: 920px) and (max-width: 1190px) {
+        font-size: 15px;
+        width: 45%;
+        left: 30%;
+      }
+    }
+
+    .menu{
+      width: 60%;
+      position: absolute;
+      right: 35px;
+      top: 10px;
+      text-align: left;
+      background: white;
+      border-radius: 5px;
+      display: none;
+
+      p{
+        width: 100%;
+        margin: 15px 0px 15px 25px;
+        cursor: pointer;
+        font-size: 12px;
+        color: $gray;
+        transition: all 0.6s ease-in-out;
+
+        &:hover{
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+.landing-update{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 99;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  display: none;
+
+  .form-article{
+    width: 40%;
+    background: white;
+    border-radius: 10px;
+    padding: 40px 30px;
+    top: 10%;
+
+    .form-div{
+      width: 80%;
+
+      .cancel{
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+        margin: -67px 0 20px 130px;
+      }
+    }
+
+    @media screen and (max-width: 520px) {
+      width: 80%;
+    }
+    @media screen and (min-width: 521px) and (max-width: 920px) {
+      width: 70%;
+    }
+  }
+}
